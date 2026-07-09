@@ -7,30 +7,29 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#0A0A0A;--card:#141414;--elevated:#1C1C1C;--red:#C8102E;--green:#1F7D6B;--purple:#7030A0;--amber:#D97706;--blue:#2563EB;--txt:#F5F5F5;--muted:#9CA3AF;--border:#2A2A2A;--mono:'JetBrains Mono','Courier New',monospace}
-html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:var(--txt);min-height:100vh;padding:16px}
-.outer{max-width:720px;margin:0 auto}
+html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:var(--txt);min-height:100vh;padding:0;margin:0}
+.outer{max-width:1200px;margin:0 auto;padding:20px 24px}
+@media(max-width:768px){.outer{padding:12px 12px}}
+@media(max-width:480px){.outer{padding:8px 8px}}
 
 /* TOPBAR */
 .topbar{background:var(--card);border:.5px solid var(--border);border-radius:10px 10px 0 0;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .brand{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-.ver-wrap{display:flex;align-items:center;gap:8px}
-.ver-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:4px}
-.ver-chubb{background:#dcfce7;color:#166534}.ver-li{background:#eff6ff;color:#1e40af}
-.toggle-wrap{display:flex;gap:3px;background:var(--elevated);border-radius:5px;padding:3px}
-.tog{background:none;border:none;color:var(--muted);font-size:11px;font-weight:600;padding:4px 10px;border-radius:3px;cursor:pointer;transition:all .15s}
-.tog.active{background:var(--red);color:#fff}
+
 
 /* MAIN TAB NAV */
-.tab-nav{background:var(--elevated);border-left:.5px solid var(--border);border-right:.5px solid var(--border);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 18px}
+.tab-nav{background:var(--elevated);border-left:.5px solid var(--border);border-right:.5px solid var(--border);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 24px}
 .tab-nav::-webkit-scrollbar{display:none}
-.tab-btn{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-size:11px;font-weight:600;padding:9px 12px;cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0}
+.tab-btn{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-size:12px;font-weight:600;padding:10px 14px;cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0}
+@media(max-width:600px){.tab-btn{font-size:11px;padding:9px 10px}}
 .tab-btn.active{color:var(--txt);border-bottom-color:var(--red)}
 .tab-btn.active.example-tab{border-bottom-color:var(--green);color:#6EE7B7}
 .tab-btn:hover:not(.active){color:var(--txt)}
 .tab-btn.example-tab{color:var(--green);opacity:.8}
 
 /* SUBTAB BAR — shown only when tab 3 is active */
-.subtab-bar{background:rgba(31,125,107,0.07);border-left:.5px solid var(--border);border-right:.5px solid var(--border);border-bottom:.5px solid rgba(31,125,107,0.25);padding:0 18px;display:none;align-items:center;gap:0}
+.subtab-bar{background:rgba(31,125,107,0.07);border-left:.5px solid var(--border);border-right:.5px solid var(--border);border-bottom:.5px solid rgba(31,125,107,0.25);padding:0 24px;display:none;align-items:center;gap:0}
+@media(max-width:600px){.subtab-bar{padding:0 12px}}
 .subtab-bar.visible{display:flex}
 .subtab-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);white-space:nowrap;padding-right:12px;border-right:.5px solid rgba(31,125,107,0.3);margin-right:4px;flex-shrink:0;opacity:.7}
 .subtab-btn{background:none;border:none;border-bottom:2px solid transparent;color:rgba(31,125,107,.6);font-size:11px;font-weight:600;padding:7px 10px;cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0;display:flex;align-items:center;gap:6px}
@@ -39,14 +38,18 @@ html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:va
 .subtab-arrow{color:rgba(31,125,107,.35);font-size:11px;padding:7px 0;flex-shrink:0}
 
 /* SLIDE WRAP */
-.slide-wrap{background:var(--bg);border:.5px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:22px;min-height:500px}
+.slide-wrap{background:var(--bg);border:.5px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:28px 32px;min-height:560px}
+@media(max-width:768px){.slide-wrap{padding:18px 16px;min-height:auto}}
+@media(max-width:480px){.slide-wrap{padding:14px 12px}}
 .slide{display:none}.slide.active{display:block}
 .subslide{display:none}.subslide.active{display:block}
 
 /* COMMON */
 .sn{font-family:var(--mono);font-size:11px;color:var(--red);font-weight:700;letter-spacing:.08em}
 .sn-ex{font-family:var(--mono);font-size:11px;color:var(--green);font-weight:700;letter-spacing:.08em}
-.st{font-size:21px;font-weight:700;color:var(--txt);line-height:1.2;margin:6px 0 10px}
+.st{font-size:24px;font-weight:700;color:var(--txt);line-height:1.2;margin:6px 0 12px}
+@media(max-width:768px){.st{font-size:20px}}
+@media(max-width:480px){.st{font-size:17px}}
 .ss{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
 .sl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .sl::after{content:'';flex:1;height:.5px;background:var(--border)}
@@ -59,6 +62,8 @@ html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:va
 .g8{height:8px}.g12{height:12px}.g16{height:16px}
 .r2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+@media(max-width:768px){.r3{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.r2,.r3{grid-template-columns:1fr}}
 .card{background:var(--card);border:.5px solid var(--border);border-radius:6px;padding:11px 13px}
 .cl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:5px}
 .cv{font-family:var(--mono);font-size:20px;color:var(--txt);margin-bottom:2px}
@@ -100,6 +105,7 @@ html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:va
 .lhitl{font-size:10px;font-weight:700;color:#fbbf24;background:rgba(217,119,6,.1);border:.5px solid rgba(217,119,6,.35);border-radius:3px;padding:1px 5px}
 .lorch{font-size:10px;color:#f9a8d4;background:rgba(236,72,153,.07);border:.5px solid rgba(236,72,153,.3);border-radius:10px;padding:2px 7px}
 .al{display:grid;grid-template-columns:1fr 170px;gap:10px}
+@media(max-width:600px){.al{grid-template-columns:1fr}}
 .nf{display:flex;flex-direction:column}
 .nb{background:var(--card);border:.5px solid var(--border);border-left:2.5px solid var(--purple);border-radius:0 6px 6px 0;padding:8px 10px}
 .nh{display:flex;align-items:center;gap:6px;margin-bottom:3px}
@@ -148,6 +154,8 @@ html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:va
 .psi:last-child{border-bottom:none}.psi strong{color:var(--txt)}
 /* Tab 5 */
 .phases{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+@media(max-width:900px){.phases{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.phases{grid-template-columns:1fr}}
 .phase{background:var(--card);border:.5px solid var(--border);border-radius:5px;overflow:hidden}
 .phdr{padding:9px 11px;border-bottom:.5px solid var(--border)}
 .pdays{font-family:var(--mono);font-size:11px;font-weight:700;margin-bottom:2px}
@@ -160,10 +168,13 @@ html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:va
 .pi:last-child{border-bottom:none}
 .pid{width:4px;height:4px;border-radius:50%;background:var(--border);flex-shrink:0;margin-top:5px}
 .msr{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+@media(max-width:768px){.msr{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.msr{grid-template-columns:1fr}}
 .ms{border-radius:5px;padding:8px 10px;border:.5px solid}
 .mst{font-family:var(--mono);font-size:10px;font-weight:700;margin-bottom:3px}
 .mss{font-size:11px;color:var(--muted);line-height:1.4}
 .pg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media(max-width:600px){.pg{grid-template-columns:1fr}}
 .perf{background:var(--card);border:.5px solid var(--border);border-left:2px solid;border-radius:0 5px 5px 0;padding:8px 10px}
 .pfm{font-size:11px;font-weight:600;color:var(--txt);margin-bottom:2px}
 .pft2{font-family:var(--mono);font-size:11px;margin-bottom:2px}
@@ -172,6 +183,8 @@ html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:va
 .pos{background:var(--elevated);border-left:3px solid var(--red);padding:11px 15px;font-size:13px;line-height:1.7;color:var(--txt);margin-bottom:14px}
 .pos em{color:var(--muted);font-style:normal}
 .pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+@media(max-width:900px){.pillars{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.pillars{grid-template-columns:1fr}}
 .pillar{background:var(--card);border:.5px solid var(--border);border-radius:5px;overflow:hidden}
 .piph{padding:10px 11px;border-bottom:.5px solid var(--border)}
 .pipi{font-size:17px;margin-bottom:5px}
@@ -187,7 +200,8 @@ html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:va
 .certl{font-size:10px;color:var(--muted);line-height:1.3}
 .certl strong{color:var(--txt);display:block;font-size:11px}
 .ag{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
-.agent{background:var(--card);border:.5px solid var(--border);border-radius:4px;padding:7px 8px}
+@media(max-width:768px){.ag{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ag{grid-template-columns:1fr}}
 .aname{font-size:11px;font-weight:600;color:var(--txt);margin-bottom:2px;line-height:1.3}
 .adesc{font-size:10px;color:var(--muted);line-height:1.4;margin-bottom:2px}
 .akpi{font-family:var(--mono);font-size:10px;color:#6EE7B7}
@@ -215,13 +229,7 @@ html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:va
 <!-- TOPBAR -->
 <div class="topbar">
   <span class="brand">AI-Enabled Insurance Operations · EMEA</span>
-  <div class="ver-wrap">
-    <span id="vbadge" class="ver-badge ver-chubb">Versión Chubb</span>
-    <div class="toggle-wrap">
-      <button class="tog active" onclick="setVer('chubb')">Chubb</button>
-      <button class="tog" onclick="setVer('li')">LinkedIn</button>
-    </div>
-  </div>
+
 </div>
 
 <!-- MAIN TAB NAV -->
@@ -412,20 +420,182 @@ html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:va
   <div class="subslide" id="ss3">
     <div class="sn-ex">03 · Hands On — Live Results</div>
     <div class="st">The agent at work</div>
-    <div class="ss">72 synthetic submissions processed end-to-end. Real execution traces captured in Arize Phoenix. EDD evaluation framework with 13 evaluators applied across all runs.</div>
-    <div class="phbox">
-      <div style="font-size:36px">⏳</div>
-      <div style="font-size:14px;font-weight:600;color:#fbbf24">Arize Phoenix traces pending</div>
-      <div style="font-size:12px;color:var(--muted);max-width:360px;line-height:1.6;text-align:center">Aquí irán las capturas reales de Arize Phoenix con la ejecución de las 72 submissions — distribución de outcomes, scores EDD por evaluador y spans de traza representativos.</div>
-      <div style="font-family:var(--mono);font-size:10px;background:rgba(217,119,6,.08);color:#d97706;border:.5px solid #d97706;border-radius:4px;padding:3px 9px">📸 Disponibles mañana — completar en próxima sesión</div>
+    <div class="ss">72 synthetic submissions processed end-to-end through the LangGraph agent. Execution traces and evaluations captured in Arize Phoenix. EDD framework with 8 acceptance criteria applied across all runs.</div>
+
+    <style>
+    .lr-2col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:768px){.lr-2col{grid-template-columns:1fr}}
+    .lr-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+    @media(max-width:768px){.lr-kpi-row{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.lr-kpi-row{grid-template-columns:1fr}}
+    .lr-kpi{background:var(--card);border:.5px solid var(--border);border-radius:6px;padding:10px 12px}
+    .lr-kpi-label{font-size:10px;color:var(--muted);margin-bottom:3px}
+    .lr-kpi-val{font-size:18px;font-weight:700;color:var(--txt);line-height:1.1}
+    .lr-kpi-sub{font-size:10px;color:var(--muted);margin-top:2px}
+    .lr-kpi-delta{font-size:10px;font-weight:600;margin-top:2px}
+    .lr-pos{color:#6EE7B7}.lr-neg{color:#f87171}.lr-neu{color:var(--muted)}
+    .lr-3col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+    .lr-inner{background:var(--card);border:.5px solid var(--border);border-radius:6px;padding:10px 12px}
+    .lr-sec{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px}
+    .lr-ca-grid{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+    .lr-ca-row{display:grid;grid-template-columns:136px 1fr 52px 52px 54px;gap:6px;align-items:center}
+    .lr-ca-name{font-size:11px;color:var(--txt)}
+    .lr-ca-sub{font-size:9px;color:var(--muted);margin-top:1px}
+    .lr-bar-wrap{position:relative;height:18px;background:var(--elevated);border-radius:3px;overflow:hidden}
+    .lr-bar-v1{position:absolute;top:3px;height:5px;border-radius:2px;background:#2563EB;opacity:.4}
+    .lr-bar-v2{position:absolute;bottom:3px;height:5px;border-radius:2px;background:#2563EB}
+    .lr-pct{font-size:11px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+    .lr-delta{font-size:11px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+    .lr-leg{display:flex;gap:12px;margin-bottom:7px}
+    .lr-leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--muted)}
+    .lr-leg-sq{width:9px;height:5px;border-radius:2px}
+    .lr-hitl-bar{display:flex;height:24px;border-radius:4px;overflow:hidden;gap:2px;margin-bottom:7px}
+    .lr-hitl-seg{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:#fff}
+    .lr-hitl-leg{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+    .lr-hitl-leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--muted)}
+    .lr-hitl-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+    .lr-fix-row{display:grid;grid-template-columns:36px 1fr 64px;gap:7px;align-items:start;padding:6px 8px;background:var(--elevated);border-radius:4px;margin-bottom:4px}
+    .lr-fix-row:last-child{margin-bottom:0}
+    .lr-fix-badge{font-size:9px;font-weight:700;padding:2px 4px;border-radius:3px;text-align:center;background:rgba(31,125,107,.15);color:#6EE7B7}
+    .lr-fix-name{font-size:11px;color:var(--txt)}
+    .lr-fix-desc{font-size:10px;color:var(--muted);margin-top:1px;line-height:1.3}
+    .lr-fix-impact{font-size:10px;color:#6EE7B7;text-align:right}
+    .lr-open{display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(217,119,6,.1);color:#fbbf24;border:.5px solid rgba(217,119,6,.3);margin-top:6px}
+    .lr-note{font-size:10px;color:var(--muted);line-height:1.5;margin-top:6px}
+    .lr-note strong{color:var(--muted)}
+    </style>
+
+    <!-- KPI row -->
+    <div class="lr-kpi-row">
+      <div class="lr-kpi">
+        <div class="lr-kpi-label">Avg latency · Arize Phoenix</div>
+        <div class="lr-kpi-val">31.7 s</div>
+        <div class="lr-kpi-sub">v2 prompt-fixed</div>
+        <div class="lr-kpi-delta lr-pos">v1: 1m 46s &nbsp;↓ 70%</div>
+      </div>
+      <div class="lr-kpi">
+        <div class="lr-kpi-label">Cost per submission</div>
+        <div class="lr-kpi-val">$0.038</div>
+        <div class="lr-kpi-sub">v2 · $2.74 total / 72 sub</div>
+        <div class="lr-kpi-delta lr-neu">v1: $0.035 · stable</div>
+      </div>
+      <div class="lr-kpi">
+        <div class="lr-kpi-label">Tokens per submission</div>
+        <div class="lr-kpi-val">9,681</div>
+        <div class="lr-kpi-sub">v2 · 697,032 total</div>
+        <div class="lr-kpi-delta lr-neu">v1: 9,215 · +5%</div>
+      </div>
+      <div class="lr-kpi">
+        <div class="lr-kpi-label">All CAs pass (full STP)</div>
+        <div class="lr-kpi-val">56.9%</div>
+        <div class="lr-kpi-sub">41 / 72 submissions</div>
+        <div class="lr-kpi-delta lr-pos">v1: 54.4% &nbsp;↑ +2.5 pp</div>
+      </div>
     </div>
-    <div class="g12"></div>
-    <div class="r3">
-      <div class="kpi"><div class="kf">4–6 días</div><div class="kt">&lt;4 h</div><div class="kl">Time-to-quote</div></div>
-      <div class="kpi"><div class="kf">~75%</div><div class="kt">&gt;92%</div><div class="kl">Data accuracy</div></div>
-      <div class="kpi"><div class="kf">€180–220</div><div class="kt">&lt;€100</div><div class="kl">Cost / submission</div></div>
+
+    <!-- CA pass rates + HITL/fixes -->
+    <div class="lr-2col">
+      <div>
+        <div class="lr-sec">Acceptance criteria · v1 baseline vs v2 prompt-fixed</div>
+        <div class="lr-leg">
+          <span class="lr-leg-item"><span class="lr-leg-sq" style="background:#2563EB;opacity:.4"></span>v1 baseline (68)</span>
+          <span class="lr-leg-item"><span class="lr-leg-sq" style="background:#2563EB"></span>v2 fixed (72)</span>
+        </div>
+        <div class="lr-ca-grid">
+          <div class="lr-ca-row">
+            <div><div class="lr-ca-name">CA-01 · LoB accuracy</div><div class="lr-ca-sub">H1 — intake node</div></div>
+            <div class="lr-bar-wrap"><div class="lr-bar-v1" style="width:91.2%"></div><div class="lr-bar-v2" style="width:95.8%"></div></div>
+            <div class="lr-pct" style="opacity:.6">91.2%</div><div class="lr-pct">95.8%</div>
+            <div class="lr-delta lr-pos">+4.7 pp</div>
+          </div>
+          <div class="lr-ca-row">
+            <div><div class="lr-ca-name">CA-02 · Extraction accuracy</div><div class="lr-ca-sub">H4 — field priority</div></div>
+            <div class="lr-bar-wrap"><div class="lr-bar-v1" style="width:98.7%"></div><div class="lr-bar-v2" style="width:98.8%"></div></div>
+            <div class="lr-pct" style="opacity:.6">98.7%</div><div class="lr-pct">98.8%</div>
+            <div class="lr-delta lr-neu">+0.1 pp</div>
+          </div>
+          <div class="lr-ca-row">
+            <div><div class="lr-ca-name">CA-03 · Missing fields</div><div class="lr-ca-sub">H4 — extraction node</div></div>
+            <div class="lr-bar-wrap"><div class="lr-bar-v1" style="width:85.3%"></div><div class="lr-bar-v2" style="width:86.1%"></div></div>
+            <div class="lr-pct" style="opacity:.6">85.3%</div><div class="lr-pct">86.1%</div>
+            <div class="lr-delta lr-pos">+0.8 pp</div>
+          </div>
+          <div class="lr-ca-row">
+            <div><div class="lr-ca-name">CA-04 · Appetite verdict</div><div class="lr-ca-sub">No targeted fix</div></div>
+            <div class="lr-bar-wrap"><div class="lr-bar-v1" style="width:92.6%"></div><div class="lr-bar-v2" style="width:93.1%"></div></div>
+            <div class="lr-pct" style="opacity:.6">92.6%</div><div class="lr-pct">93.1%</div>
+            <div class="lr-delta lr-pos">+0.4 pp</div>
+          </div>
+          <div class="lr-ca-row">
+            <div><div class="lr-ca-name">CA-05 · RAG citations</div><div class="lr-ca-sub">Perfect · no regression</div></div>
+            <div class="lr-bar-wrap"><div class="lr-bar-v1" style="width:100%"></div><div class="lr-bar-v2" style="width:100%"></div></div>
+            <div class="lr-pct" style="opacity:.6">100%</div><div class="lr-pct">100%</div>
+            <div class="lr-delta lr-neu">—</div>
+          </div>
+          <div class="lr-ca-row">
+            <div><div class="lr-ca-name">CA-06 · HITL routing</div><div class="lr-ca-sub">H2+H3 · cluster B open</div></div>
+            <div class="lr-bar-wrap"><div class="lr-bar-v1" style="width:72.1%"></div><div class="lr-bar-v2" style="width:70.8%"></div></div>
+            <div class="lr-pct" style="opacity:.6">72.1%</div><div class="lr-pct" style="color:#f87171">70.8%</div>
+            <div class="lr-delta lr-neg">–1.2 pp</div>
+          </div>
+          <div class="lr-ca-row">
+            <div><div class="lr-ca-name">CA-07 · LLM judge</div><div class="lr-ca-sub">98.9/100 avg · stable</div></div>
+            <div class="lr-bar-wrap"><div class="lr-bar-v1" style="width:100%"></div><div class="lr-bar-v2" style="width:100%"></div></div>
+            <div class="lr-pct" style="opacity:.6">100%</div><div class="lr-pct">100%</div>
+            <div class="lr-delta lr-neu">—</div>
+          </div>
+          <div class="lr-ca-row">
+            <div><div class="lr-ca-name">CA-08 · Time-to-quote</div><div class="lr-ca-sub">All 72 pass in v2</div></div>
+            <div class="lr-bar-wrap"><div class="lr-bar-v1" style="width:98.5%"></div><div class="lr-bar-v2" style="width:100%"></div></div>
+            <div class="lr-pct" style="opacity:.6">98.5%</div><div class="lr-pct">100%</div>
+            <div class="lr-delta lr-pos">+1.5 pp</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="lr-sec">Submission outcomes · v2 · 72 total</div>
+        <div class="lr-hitl-bar">
+          <div class="lr-hitl-seg" style="flex:15;background:#1F7D6B">STP 15</div>
+          <div class="lr-hitl-seg" style="flex:8;background:#2563EB">H1 8</div>
+          <div class="lr-hitl-seg" style="flex:32;background:#D97706">H2 32</div>
+          <div class="lr-hitl-seg" style="flex:17;background:#C8102E">H3 17</div>
+        </div>
+        <div class="lr-hitl-leg">
+          <div class="lr-hitl-leg-item"><div class="lr-hitl-dot" style="background:#1F7D6B"></div>STP — complete data, in appetite</div>
+          <div class="lr-hitl-leg-item"><div class="lr-hitl-dot" style="background:#2563EB"></div>HITL-1 — incomplete data</div>
+          <div class="lr-hitl-leg-item"><div class="lr-hitl-dot" style="background:#D97706"></div>HITL-2 — out of appetite</div>
+          <div class="lr-hitl-leg-item"><div class="lr-hitl-dot" style="background:#C8102E"></div>HITL-3 — complex risk · senior UW</div>
+        </div>
+        <div class="lr-note">Submissions can trigger multiple HITL points. 15 run end-to-end STP with no human checkpoint.</div>
+
+        <div style="height:10px"></div>
+        <div class="lr-sec">Prompt fixes applied · v1 → v2</div>
+        <div class="lr-fix-row">
+          <span class="lr-fix-badge">H1</span>
+          <div><div class="lr-fix-name">intake_node — LoB priority rule</div><div class="lr-fix-desc">Only reclassify if email explicitly contradicts declared LoB</div></div>
+          <div class="lr-fix-impact">CA-01 +4.7 pp</div>
+        </div>
+        <div class="lr-fix-row">
+          <span class="lr-fix-badge">H2</span>
+          <div><div class="lr-fix-name">risk_node — risk_flags prohibition</div><div class="lr-fix-desc">No positive/absent data in risk_flags — cuts false HITL-3</div></div>
+          <div class="lr-fix-impact">CA-06 cluster A</div>
+        </div>
+        <div class="lr-fix-row">
+          <span class="lr-fix-badge">H3</span>
+          <div><div class="lr-fix-name">risk_node — multinational criterion</div><div class="lr-fix-desc">6th HITL-3 trigger: multi-location without territorial endorsement</div></div>
+          <div class="lr-fix-impact">CA-06 cluster C</div>
+        </div>
+        <div class="lr-fix-row">
+          <span class="lr-fix-badge">H4</span>
+          <div><div class="lr-fix-name">extraction_node — field priority</div><div class="lr-fix-desc">5 critical fields in priority order · negative rule on missing_fields</div></div>
+          <div class="lr-fix-impact">CA-03 +0.8 pp</div>
+        </div>
+        <div class="lr-open">Open: CA-06 cluster B · 21 residual failures · next iteration</div>
+      </div>
     </div>
-    <div class="br"><div class="bae">→</div><div class="bt"><strong>Example complete.</strong> The next slide shows how this scales — the operating model for the AI Enabled Operations function across Chubb EMEA.</div></div>
+
+    <div class="br" style="margin-top:10px"><div class="bae">→</div><div class="bt"><strong>Example complete.</strong> The next slide shows how this scales — the operating model for the AI Enabled Operations function across Chubb EMEA.</div></div>
   </div>
 
 </div><!-- end slide s3 -->
@@ -613,48 +783,9 @@ html,body{background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:va
 </div><!-- outer -->
 <script>
 // State
-var cur=1, cursub=1, tot=6, totsub=3, ver='chubb';
+var cur=1, cursub=1, tot=6, totsub=3;
 
-// Version data
-var V={
-  chubb:{
-    s1t:'The mandate came from the top',
-    s1s:"Chubb's 2025 shareholder letter set an unambiguous direction. AI-enabled operations are not a technology pilot — they are the mechanism through which Chubb protects and extends its combined ratio leadership.",
-    s1q:'"Chubb\'s transformation agenda centres on combining AI — algorithmic and large language models — with foundational technology, data, and process reengineering to automate and transform the organisation at a deeply granular level. This requires leadership skilled in actual business transformation: iterative, gritty work that takes sustained focus.<br><br>This is not a technology initiative. It is a business transformation imperative with a direct line to Chubb\'s competitive position and margin targets."',
-    s1a:'— Evan Greenberg, Chairman and CEO, Chubb · Annual Letter to Shareholders 2025',
-    s1l3:'Europe / UK NWP 2025',s1n3:'~80% commercial lines · Madrid hub',
-    s1br:'<strong>AI-enabled insurance operations will run across EMEA.</strong> That requires a new function — and a specific type of leader: someone who understands the business deeply enough to transform it, and the technology well enough to build it. The next slide maps what that transformation looks like across underwriting, claims, and customer service.',
-    s1src:'Sources: Chubb Annual Report 2025 · Greenberg Letter to Shareholders 2025',
-    s4s:'Not a project team. Not a centre of excellence. A permanent operational unit with a product mindset, direct business accountability, and the mandate to build AI into the fabric of how Chubb EMEA operates.'
-  },
-  li:{
-    s1t:'What a real AI transformation looks like',
-    s1s:'Three years of hands-on AI deployment in insurance operations — applied to the most complex workflow in P&C commercial lines. This is what it looks like when AI transformation is a business initiative, not a technology project.',
-    s1q:'"The insurer that wins the next decade will be the one that operationalises AI across underwriting, claims and customer service — not as a pilot, but as the production model. This requires leadership skilled in actual business transformation: iterative, gritty work that takes sustained focus.<br><br>This is not a technology initiative. It is a business transformation imperative with a direct line to competitive position and margin targets."',
-    s1a:'— Strategic context · P&C Commercial Lines AI Transformation · 2025',
-    s1l3:'EMEA Commercial NWP',s1n3:'~$6.8B · Madrid–Manchester–EMEA',
-    s1br:'<strong>AI-enabled insurance operations will run across EMEA.</strong> That requires a new function and a specific type of leader. The next slide maps what that transformation looks like across underwriting, claims, and customer service — and how each initiative connects directly to the combined ratio.',
-    s1src:'Sources: P&C Commercial Lines market analysis 2025 · Industry benchmarks',
-    s4s:'Not a project team. Not a centre of excellence. A permanent operational unit with a product mindset, direct business accountability, and the mandate to build AI into the fabric of how a Tier-1 P&C insurer operates.'
-  }
-};
 
-function setVer(v){
-  ver=v;
-  document.querySelectorAll('.tog').forEach(function(b,i){b.classList.toggle('active',i===(v==='chubb'?0:1))});
-  var b=document.getElementById('vbadge');
-  b.className='ver-badge '+(v==='chubb'?'ver-chubb':'ver-li');
-  b.textContent=v==='chubb'?'Versión Chubb':'Versión LinkedIn';
-  var d=V[v];
-  document.getElementById('s1t').textContent=d.s1t;
-  document.getElementById('s1s').textContent=d.s1s;
-  document.getElementById('s1q').innerHTML=d.s1q+'<div class="pa">'+d.s1a+'</div>';
-  document.getElementById('s1l3').textContent=d.s1l3;
-  document.getElementById('s1n3').textContent=d.s1n3;
-  document.getElementById('s1br').innerHTML=d.s1br;
-  document.getElementById('s1src').textContent=d.s1src;
-  document.getElementById('s4s').textContent=d.s4s;
-}
 
 function buildDots(){
   var c=document.getElementById('ndots'); c.innerHTML='';
